@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Servicios Solicitados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Indicaciones</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of services">
+                    <td *ngIf="item.stat == 'A'" class="cl-gris-3"> <i class="fa-regular fa-clock"></i> Sin iniciar </td>
+                    <td *ngIf="item.stat == 'P'" class="cl-roze-neg2"> <i class="fa-solid fa-play"></i> En progreso </td>
+                    <td>{{ item.indications }}</td>
+                    <td>{{ item.addr }}</td>
+                    <td *ngIf="item.id_type == 1">Instalación</td> <td *ngIf="item.id_type == 2">Reparación</td>
+                    <td *ngIf="item.stat == 'A'"> <button (click)="startService(item.id)" class="btn bg-blanco cl-roze-neg2 ol-roze ol-roze-hv m-0px"> Iniciar </button> </td>
+                    <td *ngIf="item.stat == 'P'"> <button (click)="finishService(item.id)" class="btn bg-blanco cl-ciel-neg1 ol-ciel ol-ciel-hv m-0px"> Finalizar </button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <h2>Servicios Finalizados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Indicaciones</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of fServices">
+                    <td class="cl-ciel-neg1"> <i class="fa-solid fa-check"></i> Terminado </td>
+                    <td>{{ item.indications }}</td>
+                    <td>{{ item.addr }}</td>
+                    <td *ngIf="item.id_type == 1">Instalación</td> <td *ngIf="item.id_type == 2">Reparación</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

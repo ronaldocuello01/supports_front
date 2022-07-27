@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-9">
+
+    </div>
+    <div class="col-md-3">
+        <form (submit)="createService()">
+            <div class="card">
+
+                <div class="card-header fbold cl-viol-neg2">
+                    Solicitar servicio
+                </div>
+                <div class="card-body">
+                    <div class="form-group mtop-10px">
+                        <label for="indications">Indicaciones</label>
+                        <input type="text" [(ngModel)]="service.indications" name="indications" class="form-control ol-viol" id="indications" placeholder="indications" required autofocus>
+                    </div>
+
+                    <div class="form-group mtop-10px">
+                        <label for="address">Dirección</label>
+                        <input type="text" [(ngModel)]="service.address" name="address" class="form-control ol-viol" id="address" placeholder="Enter address" required autofocus>
+                    </div>
+
+                    <div class="form-group mtop-10px">
+                        <label for="tipo">tipo de servicio</label>
+                        <select name="id_type" id="id_type" [(ngModel)]="service.id_type" class="form-control ol-viol">
+                            <option *ngFor="let item of serviceTypes" value="{{ item.id }}">{{ item.nombre }}</option>
+                        </select>
+                    </div>
+        
+                    <button type="submit" class="btn bg-blanco cl-viol-neg2 ol-viol ol-viol-hv mtop-30px">Solicitar servicio</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
